@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deconovia — Living Sculptures Collection 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    @font-face {
+      font-family: 'Golden';
+      src: url('Golden.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:       #c9a84c;
+      --gold-light: #e8d49a;
+      --gold-dim:   #7a6428;
+      --black:      #090806;
+      --dark:       #0f0e0b;
+      --mid:        #131108;
+      --cream:      #f4efe6;
+      --cream-dim:  #b0ab9f;
+      --display: 'Golden', Georgia, serif;
+      --serif:   'Golden', Georgia, serif;
+      --sans:    'Raleway', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--black);
+      color: var(--cream);
+      font-family: var(--sans);
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-dim); }
+
+    /* ══ HEADER ══ */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem;
+      background: linear-gradient(to bottom, rgba(9,8,6,.97) 70%, transparent);
+    }
+    header.scrolled { background: rgba(9,8,6,.97); }
+
+    .logo-img { height: 56px; width: auto; display: block; }
+
+    nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0; }
+    nav a {
+      font-family: var(--sans);
+      font-size: 0.56rem; font-weight: 400;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--cream-dim); text-decoration: none;
+      padding: 0.35rem 0.65rem;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: var(--gold); }
+
+    .nav-toggle {
+      display: none; background: none; border: none;
+      cursor: pointer; padding: 6px; z-index: 201;
+    }
+    .nav-toggle span {
+      display: block; width: 26px; height: 1px;
+      background: var(--cream); margin: 6px 0;
+      transition: all 0.35s;
+    }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-drawer {
+      display: none; position: fixed; inset: 0; z-index: 199;
+      background: rgba(9,8,6,.97);
+      flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+    }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a {
+      font-family: var(--display);
+      font-size: 1.8rem; letter-spacing: 0.06em;
+      color: var(--cream); text-decoration: none;
+      transition: color 0.3s;
+    }
+    .nav-drawer a:hover { color: var(--gold); }
+
+    /* ══ HERO ══ */
+    .hero {
+      height: 100svh; min-height: 640px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 75% 55% at 50% 42%, rgba(201,168,76,.07) 0%, transparent 65%);
+    }
+    .hero-logo-wrap { margin-bottom: 3rem; position: relative; z-index: 1; }
+    .hero-logo { height: 120px; width: auto; }
+    .hero-rule {
+      width: 1px; height: 70px;
+      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+      margin: 0 auto 2.8rem; position: relative; z-index: 1;
+    }
+    .hero-eyebrow {
+      font-family: var(--sans); font-size: 0.6rem;
+      letter-spacing: 0.4em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.5rem;
+      position: relative; z-index: 1;
+    }
+    .hero h1 {
+      font-family: var(--display); font-weight: normal;
+      font-size: clamp(3.5rem, 9vw, 9rem);
+      line-height: 1.0; letter-spacing: 0.04em;
+      color: var(--cream); margin-bottom: 2rem;
+      position: relative; z-index: 1;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+    .hero-sub {
+      font-family: var(--sans); font-size: clamp(0.58rem, 1.1vw, 0.72rem);
+      font-weight: 200; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--cream-dim);
+      line-height: 2.4; position: relative; z-index: 1;
+    }
+    .hero-scroll {
+      position: absolute; bottom: 2.8rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
+      font-family: var(--sans); font-size: 0.52rem;
+      letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--gold-dim); animation: breathe 2.8s ease-in-out infinite;
+    }
+    .hero-scroll::after {
+      content: ''; display: block; width: 1px; height: 42px;
+      background: linear-gradient(to bottom, var(--gold-dim), transparent);
+    }
+    @keyframes breathe { 0%,100%{opacity:.35} 50%{opacity:1} }
+
+    /* ══ ORNAMENTS ══ */
+    .ornament {
+      display: flex; align-items: center; gap: 1.2rem;
+      margin: 0 auto; width: fit-content;
+    }
+    .ornament::before, .ornament::after {
+      content: ''; display: block; width: 80px; height: 1px;
+    }
+    .ornament::before { background: linear-gradient(to right, transparent, var(--gold)); }
+    .ornament::after  { background: linear-gradient(to left,  transparent, var(--gold)); }
+    .ornament-gem { width: 7px; height: 7px; background: var(--gold); transform: rotate(45deg); }
+
+    /* ══ COLLECTION INTRO ══ */
+    .collection-intro {
+      text-align: center; padding: 5rem 2rem 6rem;
+    }
+    .eyebrow {
+      font-family: var(--sans); font-size: 0.58rem;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.2rem; display: block;
+    }
+    .collection-intro h2 {
+      font-family: var(--display); font-weight: normal;
+      font-size: clamp(2.2rem, 4.5vw, 4.5rem);
+      letter-spacing: 0.06em; color: var(--cream); margin-bottom: 1.8rem;
+    }
+    .collection-intro p {
+      font-family: var(--sans); font-size: 0.82rem; line-height: 2.2;
+      font-weight: 300; color: var(--cream-dim);
+      max-width: 540px; margin: 0 auto; letter-spacing: 0.04em;
+    }
+
+    /* ══ PRODUCT SECTION ══ */
+    .product {
+      padding: 7rem 0;
+      border-top: 1px solid rgba(201,168,76,.1);
+    }
+    .product:nth-child(even) { background: var(--mid); }
+
+    .product-inner {
+      max-width: 1460px; margin: 0 auto; padding: 0 4rem;
+    }
+
+    /* product header */
+    .product-header {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: 0 4rem;
+      align-items: start;
+      margin-bottom: 4rem;
+    }
+    .header-divider {
+      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+      align-self: stretch; min-height: 100px;
+    }
+
+    .p-number {
+      font-family: var(--sans); font-style: italic;
+      font-size: 0.72rem; letter-spacing: 0.25em;
+      color: var(--gold-dim); margin-bottom: 0.9rem;
+    }
+    .p-name {
+      font-family: var(--display); font-weight: normal;
+      font-size: clamp(2.8rem, 4vw, 4.5rem);
+      line-height: 1.05; letter-spacing: 0.04em;
+      color: var(--cream); margin-bottom: 0.7rem;
+    }
+    .p-name em { font-style: italic; color: var(--gold-light); }
+    .p-tagline {
+      font-family: var(--sans); font-size: 0.6rem;
+      letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold);
+    }
+    .p-desc {
+      font-family: var(--sans); font-size: 0.82rem;
+      line-height: 2.2; font-weight: 300;
+      color: var(--cream-dim); letter-spacing: 0.04em; margin-bottom: 2rem;
+    }
+    .p-specs { display: flex; flex-wrap: wrap; gap: 1.2rem 2.5rem; }
+    .p-spec-label {
+      font-family: var(--sans); font-size: 0.5rem;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--gold-dim); margin-bottom: 0.3rem;
+    }
+    .p-spec-value {
+      font-family: var(--sans); font-size: 0.85rem;
+      font-weight: 300; color: var(--cream-dim);
+    }
+
+    /* ══ IMAGE LAYOUTS ══
+       Strategy: never constrain height. Width is set, height flows naturally.
+       The hero image is always the main large display.
+       Support images sit in a grid below, each at natural ratio.
+    ══ */
+
+    /* Large hero — full product width */
+    .img-full {
+      width: 100%; display: block;
+      position: relative; margin-bottom: 0.8rem;
+    }
+    .img-full img {
+      width: 100%; height: auto; display: block;
+      filter: brightness(.95) contrast(1.04);
+      transition: filter .6s;
+    }
+    .img-full:hover img { filter: brightness(1); }
+    .img-full::after {
+      content: ''; position: absolute; inset: 0;
+      border: 1px solid rgba(201,168,76,.15); pointer-events: none;
+    }
+
+    /* Constrained hero — max 60% of container, centered */
+    .img-hero-centered {
+      max-width: 60%; margin: 0 auto 0.8rem;
+      display: block; position: relative;
+    }
+    .img-hero-centered img {
+      width: 100%; height: auto; display: block;
+      filter: brightness(.95) contrast(1.04);
+      transition: filter .6s;
+    }
+    .img-hero-centered:hover img { filter: brightness(1); }
+    .img-hero-centered::after {
+      content: ''; position: absolute; inset: 0;
+      border: 1px solid rgba(201,168,76,.15); pointer-events: none;
+    }
+
+    /* Two-column layout: hero image left/right, detail grid other side
+       Uses a table-like approach to avoid height inference issues */
+    .split {
+      display: flex; gap: 0.8rem; align-items: flex-start;
+      margin-bottom: 0.8rem;
+    }
+    .split-hero { flex: 1.2; min-width: 0; position: relative; }
+    .split-hero img {
+      width: 100%; height: auto; display: block;
+      filter: brightness(.94) contrast(1.04); transition: filter .6s;
+    }
+    .split-hero:hover img { filter: brightness(1); }
+    .split-hero::after {
+      content: ''; position: absolute; inset: 0;
+      border: 1px solid rgba(201,168,76,.15); pointer-events: none;
+    }
+
+    .split-grid { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 0.8rem; }
+    .split-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+
+    /* Multi-column strip */
+    .img-strip {
+      display: grid; gap: 0.8rem; margin-top: 0.8rem;
+    }
+    .img-strip.c2 { grid-template-columns: repeat(2, 1fr); }
+    .img-strip.c3 { grid-template-columns: repeat(3, 1fr); }
+    .img-strip.c4 { grid-template-columns: repeat(4, 1fr); }
+
+    /* Base tile — all images show at natural height */
+    .tile {
+      position: relative; overflow: hidden;
+    }
+    .tile img {
+      width: 100%; height: auto; display: block;
+      filter: brightness(.88); transition: filter .5s;
+    }
+    .tile:hover img { filter: brightness(1); }
+    .tile::after {
+      content: ''; position: absolute; inset: 0;
+      border: 1px solid rgba(201,168,76,0);
+      transition: border-color .4s; pointer-events: none;
+    }
+    .tile:hover::after { border-color: rgba(201,168,76,.3); }
+
+    /* ══ FOOTER ══ */
+    footer {
+      border-top: 1px solid rgba(201,168,76,.15);
+      padding: 5rem 3rem 4rem;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 2rem; text-align: center;
+    }
+    .footer-logo { height: 72px; width: auto; }
+    .footer-tagline {
+      font-family: var(--sans); font-size: 0.58rem;
+      letter-spacing: 0.32em; text-transform: uppercase; color: var(--cream-dim);
+    }
+    .footer-copy {
+      font-family: var(--sans); font-size: 0.58rem;
+      letter-spacing: 0.12em; color: var(--gold-dim);
+    }
+
+    /* ══ FADE UP ══ */
+    .fu {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity .85s ease, transform .85s ease;
+    }
+    .fu.vis { opacity: 1; transform: translateY(0); }
+    .fu.d1 { transition-delay: .1s; }
+    .fu.d2 { transition-delay: .2s; }
+    .fu.d3 { transition-delay: .3s; }
+
+    /* ══ RESPONSIVE ══ */
+    @media (max-width: 1100px) {
+      .product-inner { padding: 0 2.5rem; }
+      header { padding: 1.1rem 2rem; }
+      nav { display: none; }
+      .nav-toggle { display: block; }
+      .product-header { grid-template-columns: 1fr; gap: 1.5rem; }
+      .header-divider { display: none; }
+      .img-hero-centered { max-width: 80%; }
+    }
+
+    @media (max-width: 768px) {
+      .product { padding: 4rem 0; }
+      .product-inner { padding: 0 1.4rem; }
+      header { padding: 0.9rem 1.4rem; }
+      .logo-img { height: 42px; }
+      .hero-logo { height: 80px; }
+      .footer-logo { height: 54px; }
+      footer { padding: 3.5rem 1.5rem 3rem; }
+
+      /* hero text */
+      .hero-eyebrow { font-size: 0.52rem; letter-spacing: 0.22em; }
+      .hero-sub { font-size: 0.58rem; letter-spacing: 0.18em; }
+      .hero-rule { height: 50px; }
+
+      /* product header */
+      .product-header { margin-bottom: 2.5rem; }
+      .p-name { font-size: clamp(2.2rem, 10vw, 3.2rem); }
+      .p-desc { font-size: 0.78rem; line-height: 2; }
+      .p-specs { gap: 1rem 1.8rem; }
+
+      /* collection intro */
+      .collection-intro { padding: 3.5rem 1.5rem 4rem; }
+      .ornament::before, .ornament::after { width: 50px; }
+
+      /* images */
+      .split { flex-direction: column; gap: 0.6rem; }
+      .split-hero { flex: none; width: 100%; }
+      .split-grid { flex: none; width: 100%; }
+      .img-strip.c3, .img-strip.c4 { grid-template-columns: repeat(2, 1fr); }
+      .img-strip { gap: 0.6rem; margin-top: 0.6rem; }
+      .split-grid-2 { gap: 0.6rem; }
+      .img-hero-centered { max-width: 100%; }
+
+      /* nav drawer */
+      .nav-drawer a { font-size: 1.4rem; }
+    }
+
+    @media (max-width: 480px) {
+      .product { padding: 3rem 0; }
+      .product-inner { padding: 0 1.1rem; }
+      .hero-logo { height: 60px; }
+      .logo-img { height: 34px; }
+      .hero h1 { font-size: clamp(2.8rem, 14vw, 4rem); }
+      .hero-eyebrow { font-size: 0.48rem; letter-spacing: 0.18em; }
+      .hero-sub { font-size: 0.52rem; letter-spacing: 0.14em; }
+      .p-name { font-size: clamp(2rem, 11vw, 2.8rem); }
+      .img-strip.c2 { grid-template-columns: 1fr 1fr; }
+      .split-grid-2 { grid-template-columns: 1fr 1fr; }
+      .collection-intro h2 { font-size: clamp(1.8rem, 10vw, 2.4rem); }
+      footer { padding: 3rem 1.2rem 2.5rem; }
+      .footer-logo { height: 46px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header id="site-header">
+  <img src="logo_primary%20logo%20white.png" alt="Deconovia" class="logo-img" />
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav>
+    <a href="#la-pavonne">La Pavonne</a>
+    <a href="#azur-colonne">Azur Colonne</a>
+    <a href="#noir-galaxie">Noir Galaxie</a>
+    <a href="#calacatta-vivo">Calacatta Vivo</a>
+    <a href="#onyx-oracle">Onyx Oracle</a>
+    <a href="#bianco-pagoda">Bianco Pagoda</a>
+    <a href="#terra-helix">Terra Helix</a>
+    <a href="#eclipse-noir">Eclipse Noir</a>
+    <a href="#noir-orb">Noir Orb</a>
+    <a href="#obsidian-totem">Obsidian Totem</a>
+    <a href="#venus-lumiere">Venus Lumière</a>
+    <a href="#alba-flame">Alba Flame</a>
+    <a href="#athenee">Athénée</a>
+    <a href="#azur-imperial">Azur Imperial</a>
+  </nav>
+</header>
+
+<!-- Mobile drawer -->
+<div class="nav-drawer" id="nav-drawer">
+  <a href="#la-pavonne"     onclick="closeNav()">La Pavonne</a>
+  <a href="#azur-colonne"   onclick="closeNav()">Azur Colonne</a>
+  <a href="#noir-galaxie"   onclick="closeNav()">Noir Galaxie</a>
+  <a href="#calacatta-vivo" onclick="closeNav()">Calacatta Vivo</a>
+  <a href="#onyx-oracle"    onclick="closeNav()">Onyx Oracle</a>
+  <a href="#bianco-pagoda"  onclick="closeNav()">Bianco Pagoda</a>
+  <a href="#terra-helix"    onclick="closeNav()">Terra Helix</a>
+  <a href="#eclipse-noir"   onclick="closeNav()">Eclipse Noir</a>
+  <a href="#noir-orb"       onclick="closeNav()">Noir Orb</a>
+  <a href="#obsidian-totem" onclick="closeNav()">Obsidian Totem</a>
+  <a href="#venus-lumiere"  onclick="closeNav()">Venus Lumière</a>
+  <a href="#alba-flame"     onclick="closeNav()">Alba Flame</a>
+  <a href="#athenee"        onclick="closeNav()">Athénée</a>
+  <a href="#azur-imperial"  onclick="closeNav()">Azur Imperial</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-logo-wrap fu">
+    <img src="logo_primary%20logo%20white.png" alt="Deconovia" class="hero-logo" />
+  </div>
+  <div class="hero-rule"></div>
+  <p class="hero-eyebrow">Living Sculptures — Collection 2026</p>
+  <h1 class="fu d1">Nature<br /><em>Elevated</em></h1>
+  <p class="hero-sub fu d2">Fourteen singular objects. Rare materials.<br />Living botanicals. Integrated light.</p>
+  <div class="hero-scroll">Explore</div>
+</section>
+
+<!-- INTRO -->
+<section class="collection-intro fu">
+  <div class="ornament" style="margin-bottom:3rem;"><div class="ornament-gem"></div></div>
+  <span class="eyebrow">The Collection</span>
+  <h2>Objects of Singular Desire</h2>
+  <p>Each Deconovia piece is conceived as a living monument — a union of rare material, architectural form, integrated illumination and living botanicals. Conceived for interiors that demand the extraordinary.</p>
+</section>
+
+<!-- ══════════════════════════════════════════
+     01 — LA PAVONNE
+══════════════════════════════════════════ -->
+<section class="product" id="la-pavonne">
+  <div class="product-inner">
+    <div class="product-header fu">
+      <div>
+        <div class="p-number">№ 01</div>
+        <h2 class="p-name">La<br /><em>Pavonne</em></h2>
+        <div class="p-tagline">Figurative Botanical Gown</div>
+      </div>
+      <div class="header-divider"></div>
+      <div>
+        <p class="p-desc">She stands in silent ceremony — a white ceramic figure draped in a sweeping gown alive with peacock-eye botanical clusters and trailing moss. Her wide luminous hat diffuses a warm halo across any room she inhabits. Equal parts sculpture, floor lamp and living garden; La Pavonne is an heirloom conceived for those who collect the irreplaceable.</p>
+        <div class="p-specs">
+          <div class="p-spec"><div class="p-spec-label">Material</div><div class="p-spec-value">White Ceramic</div></div>
+          <div class="p-spec"><div class="p-spec-label">Shade</div><div class="p-spec-value">Satin Wide Brim</div></div>
+          <div class="p-spec"><div class="p-spec-label">Botanicals</div><div class="p-spec-value">Peacock Fern / Moss</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="split fu d1">
+      <div class="split-hero">
+        <img src="t1%20(2).png" alt="La Pavonne — full view" />
+      </div>
+      <div class="split-grid">
+        <div class="split-grid-2">
+          <div class="tile"><img src="t1-1.png" alt="La Pavonne" /></div>
+          <div class="tile"><img src="t1-2.png" alt="La Pavonne — detail" /></div>
+        </div>
+        <div class="tile"><img src="t1-3.png" alt="La Pavonne — gown" /></div>
+        <div class="tile"><img src="t1-4.png" alt="La Pavonne — lamp" /></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     02 — AZUR COLONNE
+══════════════════════════════════════════ -->
+<section class="product" id="azur-colonne">
+  <div class="product-inner">
+    <div class="product-header fu">
+      <div>
+        <div class="p-number">№ 02</div>
+        <h2 class="p-name">Azur<br /><em>Colonne</em></h2>
+        <div class="p-tagline">Illuminated Ribbed Ceramic Tower</div>
+      </div>
+      <div class="header-divider"></div>
+      <div>
+        <p class="p-desc">A monumental column of hand-ribbed sapphire-glazed ceramic rises in a vase silhouette. Its fluted surface catches ambient light while cascading herb pods and vine-ripe tomatoes spill from each planting tier. Integrated LED bands at the waist and crown cast a warm ceremonial glow — transforming any entrance hall or atrium into a living tableau of striking presence.</p>
+        <div class="p-specs">
+          <div class="p-spec"><div class="p-spec-label">Material</div><div class="p-spec-value">Glazed Ceramic</div></div>
+          <div class="p-spec"><div class="p-spec-label">Finish</div><div class="p-spec-value">Sapphire Blue</div></div>
+          <div class="p-spec"><div class="p-spec-label">Lighting</div><div class="p-spec-value">Integrated LED</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="split fu d1">
+      <div class="split-grid">
+        <div class="tile"><img src="t2.png" alt="Azur Colonne — detail" /></div>
+      </div>
+      <div class="split-hero">
+        <img src="t2-1.png" alt="Azur Colonne — full view" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     03 — NOIR GALAXIE
+══════════════════════════════════════════ -->
+<section class="product" id="noir-galaxie">
+  <div class="product-inner">
+    <div class="product-header fu">
+      <div>
+        <div class="p-number">№ 03</div>
+        <h2 class="p-name">Noir<br /><em>Galaxie</em></h2>
+        <div class="p-tagline">Dark Marble Spiral Tower</div>
+      </div>
+      <div class="header-divider"></div>
+      <div>
+        <p class="p-desc">Cast in deep nero marquina marble streaked with veins of liquid gold, the Galaxie spirals skyward in a continuous helical gesture. Each tier opens to cradle ripe harvest clusters and cascading herbs, their vivid green punctuating the cosmic darkness of the stone. Beneath a golden sky and against terracotta earth, this piece speaks the language of elemental forces.</p>
+        <div class="p-specs">
+          <div class="p-spec"><div class="p-spec-label">Material</div><div class="p-spec-value">Nero Marquina Marble</div></div>
+          <div class="p-spec"><div class="p-spec-label">Veining</div><div class="p-spec-value">Gold Mineral</div></div>
+          <div class="p-spec"><div class="p-spec-label">Lighting</div><div class="p-spec-value">Inlaid Gold LED</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="split fu d1">
+      <div class="split-hero">
+        <img src="t3-1.png" alt="Noir Galaxie — full view" />
+      </div>
+      <div class="split-grid">
+        <div class="split-grid-2">
+          <div class="tile"><img src="t3.png" alt="Noir Galaxie — top" /></div>
+          <div class="tile"><img src="t3-2.png" alt="Noir Galaxie — detail" /></div>
+        </div>
+        <div class="split-grid-2">
+          <div class="tile"><img src="t3-3.png" alt="Noir Galaxie — veins" /></div>
+          <div class="tile"><img src="t3-4.png" alt="Noir Galaxie — ambient" /></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     04 — CALACATTA VIVO
+══════════════════════════════════════════ -->
+<section class="product" id="calacatta-vivo">
+  <div class="product-inner">
+    <div class="product-header fu">
+      <div>
+        <div class="p-number">№ 04</div>
+        <h2 class="p-name">Calacatta<br /><em>Vivo</em></h2>
+        <div class="p-tagline">Marble Cylinder Living Columns</div>
+      </div>
+      <div class="header-divider"></div>
+      <div>
+        <p class="p-desc">Three cylinders in Calacatta Gold — white marble veined in warm amber and copper — stand as a trio of quiet authority. Each column is perforated at intervals to receive living herb pods and cherry clusters that cascade in abundant bursts. A statement for the bedroom, library or drawing room; equally at home as a singular piece or in dramatic repetition.</p>
+        <div class="p-specs">
+          <div class="p-spec"><div class="p-spec-label">Material</div><div class="p-spec-value">Calacatta Gold Marble</div></div>
+          <div class="p-spec"><div class="p-spec-label">Finish</div><div class="p-spec-value">Honed & Polished</div></div>
+          <div class="p-spec"><div class="p-spec-label">Lighting</div><div class="p-spec-value">Warm Amber LED</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="split fu d1">
+      <div class="split-grid">
+        <div class="split-grid-2">
+          <div class="tile"><img src="t4-1.png" alt="Calacatta Vivo" /></div>
+          <div class="tile"><img src="t4-2.png" alt="Calacatta Vivo — detail" /></div>
+        </div>
+        <div class="split-grid-2">
+          <div class="tile"><img src="t4-3.png" alt="Calacatta Vivo — veins" /></div>
+          <div class="tile"><img src="t4-5.png" alt="Calacatta Vivo — pod" /></div>
+        </div>
+      </div>
+      <div class="split-hero">
+        <img src="t4.png" alt="Calacatta Vivo — full view" />
+      </div>
+    </div>
+    <div class="img-strip c3 fu d2">
+      <div class="tile"><img src="t4-6.png" alt="Calacatta Vivo — ambient" /></div>
+      <div class="tile"><img src="t4-3.png" alt="Calacatta Vivo — room" /></div>
+      <div class="tile"><img src="t4-1.png" alt="Calacatta Vivo" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     05 — ONYX ORACLE
+══════════════════════════════════════════ -->
+<section class="product" id="onyx-oracle">
+  <div class="product-inner">
+    <div class="product-header fu">
+      <div>
+        <div class="p-number">№ 05</div>
+        <h2 class="p-name">Onyx<br /><em>Oracle</em></h2>
+        <div class="p-tagline">Sculptural Stone Planter Vessel</div>
+      </div>
+      <div class="header-divider"></div>
+      <div>
+        <p class="p-desc">Two organic volumes of rose-amber onyx rise from a classical plinth, each form perforated to cradle cascading greenery and ripe harvest clusters. The translucent stone glows as though lit from within — an internal warmth unique to onyx. Carved by hand from a single block, no two Oracles are identical; each is defined by the singular geology of its stone.</p>
+        <div class="p-specs">
+          <div class="p-spec"><div class="p-spec-label">Material</div><div class="p-spec-value">Natural Onyx</div></div>
+          <div class="p-spec"><div class="p-spec-label">Finish</div><div class="p-spec-value">Hand Polished</div></div>
+          <div class="p-spec"><div class="p-spec-label">Edition</div><div class="p-spec-value">One-of-a-Kind</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="split fu d1">
+      <div class="split-hero">
+        <img src="t5.png" alt="Onyx Oracle — full view" />
+      </div>
+      <div class="split-grid">
+        <div class="tile"><img src="t5-1.png" alt="Onyx Oracle — detail" /></div>
+        <div class="tile"><img src="t5-2.png" alt="Onyx Oracle — veins" /></div>
+        <div class="tile"><img src="t5-3.png" alt="Onyx Oracle — ambient" /></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     06 — BIANCO PAGODA
+══════════════════════════════════════════ -->
+<section class="product" id="bianco-pagoda">
+  <div class="product-inner">
+    <div class="product-header fu">
+      <div>
+        <div class="p-number">№ 06</div>
+        <h2 class="p-name">Bianco<br /><em>Pagoda</em></h2>
+        <div class="p-tagline">White Marble Tiered Tower</div>
+      </div>
+      <div class="header-divider"></div>
+      <div>
+        <p class="p-desc">Four diminishing tiers of white Carrara marble with waisted profiles ascend in a pagoda silhouette, each tier illuminated from below by a hidden warm-amber band. Open niches in each level shelter fresh herb pods and ripe cherry clusters. Bianco Pagoda brings a quiet architectural grandeur to intimate interiors — the dining table, the console, the library shelf.</p>
+        <div class="p-specs">
+          <div class="p-spec"><div class="p-spec-label">Material</div><div class="p-spec-value">Carrara Marble</div></div>
+          <div class="p-spec"><div class="p-spec-label">Finish</div><div class="p-spec-value">Matte & Polished</div></div>
+          <div class="p-spec"><div class="p-spec-label">Lighting</div><div class="p-spec-value">Under-tier Amber</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="split fu d1">
+      <div class="split-grid">
+        <div class="split-grid-2">
+          <div class="tile"><img src="t6-1.png" alt="Bianco Pagoda — detail" /></div>
+          <div class="tile"><img src="t6-2.png" alt="Bianco Pagoda — tier" /></div>
+        </div>
+        <div class="tile"><img src="t6-3.png" alt="Bianco Pagoda — ambient" /></div>
+      </div>
+      <div class="split-hero">
+        <img src="t6.png" alt="Bianco Pagoda — full view" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     07 — TERRA HELIX
+══════════════════════════════════════════ -->
+<section class="product" id="terra-helix">
+  <div class="product-inner">
+    <div class="product-header fu">
+      <div>
+        <div class="p-number">№ 07</div>
+        <h2 class="p-name">Terra<br /><em>Helix</em></h2>
+        <div class="p-tagline">Spiral Terracotta Cactus Tower</div>
+      </div>
+      <div class="header-divider"></div>
+      <div>
+        <p class="p-desc">Sun-fired terracotta rises in an unbroken helical gesture — each spiralling tier opening to cradle spherical cactus specimens illuminated by hidden amber LEDs. The organic warmth of clay and the architectural discipline of the helix are held in perfect tension. Terra Helix is a testament to the beauty of elemental materials shaped by unwavering formal intelligence.</p>
+        <div class="p-specs">
+          <div class="p-spec"><div class="p-spec-label">Material</div><div class="p-spec-value">Fired Terracotta</div></div>
+          <div class="p-spec"><div class="p-spec-label">Finish</div><div class="p-spec-value">Natural Bisque</div></div>
+          <div class="p-spec"><div class="p-spec-label">Lighting</div><div class="p-spec-value">Concealed Amber</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="split fu d1">
+      <div class="split-hero">
+        <img src="t7.png" alt="Terra Helix — full view" />
+      </div>
+      <div class="split-grid">
+        <div class="tile"><img src="t7-1.png" alt="Terra Helix — detail" /></div>
+        <div class="tile"><img src="t7-2.png" alt="Terra Helix — spiral" /></div>
+        <div class="tile"><img src="t7-3.png" alt="Terra Helix — ambient" /></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     08 — ECLIPSE NOIR
+══════════════════════════════════════════ -->
+<section class="product" id="eclipse-noir">
+  <div class="product-inner">
+    <div class="product-header fu">
+      <div>
+        <div class="p-number">№ 08</div>
+        <h2 class="p-name">Eclipse<br /><em>Noir</em></h2>
+        <div class="p-tagline">Crescent Arc Botanical Tower</div>
+      </div>
+      <div class="header-divider"></div>
+      <div>
+        <p class="p-desc">Six crescent-shaped forms in matte anthracite ceramic stack in alternating orientation, each inner arc concealing a warm amber LED. Between the arcs, plantings of yellow-green herb and fern nestle in shadow and light. Eclipse Noir is an object of severe elegance — conceived for those who find beauty in restraint and power in the absolute absence of excess.</p>
+        <div class="p-specs">
+          <div class="p-spec"><div class="p-spec-label">Material</div><div class="p-spec-value">Anthracite Ceramic</div></div>
+          <div class="p-spec"><div class="p-spec-label">Form</div><div class="p-spec-value">Crescent Arc Stack</div></div>
+          <div class="p-spec"><div class="p-spec-label">Lighting</div><div class="p-spec-value">Arc-inset Amber</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="split fu d1">
+      <div class="split-grid">
+        <div class="split-grid-2">
+          <div class="tile"><img src="t8-1.png" alt="Eclipse Noir — detail" /></div>
+          <div class="tile"><img src="t8-2.png" alt="Eclipse Noir — arc" /></div>
+        </div>
+        <div class="tile"><img src="t8-3.png" alt="Eclipse Noir — ambient" /></div>
+      </div>
+      <div class="split-hero">
+        <img src="t8.png" alt="Eclipse Noir — full view" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     09 — NOIR ORB
+══════════════════════════════════════════ -->
+<section class="product" id="noir-orb">
+  <div class="product-inner">
+    <div class="product-header fu">
+      <div>
+        <div class="p-number">№ 09</div>
+        <h2 class="p-name">Noir<br /><em>Orb</em></h2>
+        <div class="p-tagline">Stacked Sphere Living Totem</div>
+      </div>
+      <div class="header-divider"></div>
+      <div>
+        <p class="p-desc">Spheres of dark cast concrete stack in diminishing rhythm, separated by luminous disc plates of warm LED light. Each orb is perforated at intervals to receive trailing fern and moss clusters — their vivid verdance in stark and elemental contrast against the anthracite mass. A totem of stillness. A monument to the dialogue between man-made matter and nature's persistence.</p>
+        <div class="p-specs">
+          <div class="p-spec"><div class="p-spec-label">Material</div><div class="p-spec-value">Cast Concrete</div></div>
+          <div class="p-spec"><div class="p-spec-label">Finish</div><div class="p-spec-value">Anthracite</div></div>
+          <div class="p-spec"><div class="p-spec-label">Lighting</div><div class="p-spec-value">Inter-tier LED Disc</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="split fu d1">
+      <div class="split-hero">
+        <img src="t9.png" alt="Noir Orb — full view" />
+      </div>
+      <div class="split-grid">
+        <div class="tile"><img src="t9-1.png" alt="Noir Orb — detail" /></div>
+        <div class="tile"><img src="t9-2.png" alt="Noir Orb — texture" /></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     10 — OBSIDIAN TOTEM
+══════════════════════════════════════════ -->
+<section class="product" id="obsidian-totem">
+  <div class="product-inner">
+    <div class="product-header fu">
+      <div>
+        <div class="p-number">№ 10</div>
+        <h2 class="p-name">Obsidian<br /><em>Totem</em></h2>
+        <div class="p-tagline">Geometric Cube-Sphere Tower</div>
+      </div>
+      <div class="header-divider"></div>
+      <div>
+        <p class="p-desc">Cubes and spheres in matte obsidian ceramic alternate in precise vertical composition, each geometric volume perforated to hold cascading moss and fern. Illuminated shelves between each form cast light upward and downward simultaneously — creating a rhythm of shadow and glow that animates the tower from floor to crown. An exercise in architectural rigour softened by living matter.</p>
+        <div class="p-specs">
+          <div class="p-spec"><div class="p-spec-label">Material</div><div class="p-spec-value">Obsidian Ceramic</div></div>
+          <div class="p-spec"><div class="p-spec-label">Form</div><div class="p-spec-value">Cube + Sphere</div></div>
+          <div class="p-spec"><div class="p-spec-label">Lighting</div><div class="p-spec-value">Shelf-mounted LED</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="split fu d1">
+      <div class="split-grid">
+        <div class="split-grid-2">
+          <div class="tile"><img src="t10-1.png" alt="Obsidian Totem — detail" /></div>
+          <div class="tile"><img src="t10-4.png" alt="Obsidian Totem — cube" /></div>
+        </div>
+        <div class="split-grid-2">
+          <div class="tile"><img src="t10-5.png" alt="Obsidian Totem — sphere" /></div>
+          <div class="tile"><img src="t10-6.png" alt="Obsidian Totem — plants" /></div>
+        </div>
+      </div>
+      <div class="split-hero">
+        <img src="t10.png" alt="Obsidian Totem — full view" />
+      </div>
+    </div>
+    <div class="img-strip c3 fu d2">
+      <div class="tile"><img src="t10-7.png" alt="Obsidian Totem — ambient" /></div>
+      <div class="tile"><img src="t10-4.png" alt="Obsidian Totem" /></div>
+      <div class="tile"><img src="t10-1.png" alt="Obsidian Totem" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     11 — VENUS LUMIÈRE
+══════════════════════════════════════════ -->
+<section class="product" id="venus-lumiere">
+  <div class="product-inner">
+    <div class="product-header fu">
+      <div>
+        <div class="p-number">№ 11</div>
+        <h2 class="p-name">Venus<br /><em>Lumière</em></h2>
+        <div class="p-tagline">Figurative Botanical Floor Lamp</div>
+      </div>
+      <div class="header-divider"></div>
+      <div>
+        <p class="p-desc">Cast in pale textured stone-clay, Venus Lumière rises in a feminine silhouette — her surface alive with spherical living moss pods, her conical hat a luminaire of hammered bronze interior. She is simultaneously floor lamp, botanical planter and prestige sculpture. No other object transforms a room with the same quiet authority. A singular commission for the most discerning of collections.</p>
+        <div class="p-specs">
+          <div class="p-spec"><div class="p-spec-label">Material</div><div class="p-spec-value">Textured Stone-Clay</div></div>
+          <div class="p-spec"><div class="p-spec-label">Shade</div><div class="p-spec-value">Bronze Interior Cone</div></div>
+          <div class="p-spec"><div class="p-spec-label">Type</div><div class="p-spec-value">Floor Lamp</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="split fu d1">
+      <div class="split-hero">
+        <img src="t11.png" alt="Venus Lumière — full view" />
+      </div>
+      <div class="split-grid">
+        <div class="split-grid-2">
+          <div class="tile"><img src="t11-1.png" alt="Venus Lumière — side" /></div>
+          <div class="tile"><img src="t11-2.png" alt="Venus Lumière — front" /></div>
+        </div>
+        <div class="split-grid-2">
+          <div class="tile"><img src="t11-3.png" alt="Venus Lumière — detail" /></div>
+          <div class="tile"><img src="t11-4.png" alt="Venus Lumière — lamp" /></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     12 — ALBA FLAME
+══════════════════════════════════════════ -->
+<section class="product" id="alba-flame">
+  <div class="product-inner">
+    <div class="product-header fu">
+      <div>
+        <div class="p-number">№ 12</div>
+        <h2 class="p-name">Alba<br /><em>Flame</em></h2>
+        <div class="p-tagline">Organic White Lattice Planter</div>
+      </div>
+      <div class="header-divider"></div>
+      <div>
+        <p class="p-desc">Two intertwining white ceramic ribs ascend in a frozen flame, their woven lattice glowing amber from within. Herb pods and trailing fern nestle in each diamond-shaped aperture, softening the architectural precision of the piece with living abundance. Alba Flame is an object of studied contradiction — rigid geometry and organic growth; cool white and warm amber light.</p>
+        <div class="p-specs">
+          <div class="p-spec"><div class="p-spec-label">Material</div><div class="p-spec-value">White Ceramic</div></div>
+          <div class="p-spec"><div class="p-spec-label">Finish</div><div class="p-spec-value">Satin Gloss</div></div>
+          <div class="p-spec"><div class="p-spec-label">Lighting</div><div class="p-spec-value">Interior Amber Glow</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="split fu d1">
+      <div class="split-grid">
+        <div class="tile"><img src="t12-1.png" alt="Alba Flame — lattice" /></div>
+        <div class="tile"><img src="t12-3.png" alt="Alba Flame — detail" /></div>
+        <div class="tile"><img src="t12-4.png" alt="Alba Flame — ambient" /></div>
+      </div>
+      <div class="split-hero">
+        <img src="t12.png" alt="Alba Flame — full view" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     13 — ATHÉNÉE
+══════════════════════════════════════════ -->
+<section class="product" id="athenee">
+  <div class="product-inner">
+    <div class="product-header fu">
+      <div>
+        <div class="p-number">№ 13</div>
+        <h2 class="p-name">Athé<em>née</em></h2>
+        <div class="p-tagline">Neoclassical Fluted Urn Column</div>
+      </div>
+      <div class="header-divider"></div>
+      <div>
+        <p class="p-desc">Conceived as an homage to classical architecture, Athénée is a monumental fluted urn column in warm limestone composite. Its scalloped flutes are punctuated at intervals by planted alcoves from which berry clusters and flowering vine cascade in vivid contrast against the chalky white surface. Integrated LED bands at each register illuminate the cascades from below, evoking candlelight in a grand salon.</p>
+        <div class="p-specs">
+          <div class="p-spec"><div class="p-spec-label">Material</div><div class="p-spec-value">Limestone Composite</div></div>
+          <div class="p-spec"><div class="p-spec-label">Finish</div><div class="p-spec-value">Chalky Matte</div></div>
+          <div class="p-spec"><div class="p-spec-label">Lighting</div><div class="p-spec-value">Tier LED</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="split fu d1">
+      <div class="split-hero">
+        <img src="t13.png" alt="Athénée — full view" />
+      </div>
+      <div class="split-grid">
+        <div class="split-grid-2">
+          <div class="tile"><img src="t13-1.png" alt="Athénée — detail" /></div>
+          <div class="tile"><img src="t13-2.png" alt="Athénée — fluting" /></div>
+        </div>
+        <div class="split-grid-2">
+          <div class="tile"><img src="t13-3.png" alt="Athénée — botanicals" /></div>
+          <div class="tile"><img src="t13-4.png" alt="Athénée — ambient" /></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     14 — AZUR IMPERIAL
+══════════════════════════════════════════ -->
+<section class="product" id="azur-imperial">
+  <div class="product-inner">
+    <div class="product-header fu">
+      <div>
+        <div class="p-number">№ 14</div>
+        <h2 class="p-name">Azur<br /><em>Imperial</em></h2>
+        <div class="p-tagline">Grand Delft Porcelain Column</div>
+      </div>
+      <div class="header-divider"></div>
+      <div>
+        <p class="p-desc">A majestic column clad in hand-painted Delft-inspired porcelain tiles, each panel a tapestry of cobalt floral and geometric motifs on ivory ground, edged in 22-carat gold. Illuminated from within, the translucent glaze radiates a celestial warmth. Cascading tomato vines and herb clouds emerge from each arched planting alcove in abundant, theatrical profusion. A piece born for grand palaces, landmark hotels and flagship interiors of international distinction.</p>
+        <div class="p-specs">
+          <div class="p-spec"><div class="p-spec-label">Material</div><div class="p-spec-value">Hand-painted Porcelain</div></div>
+          <div class="p-spec"><div class="p-spec-label">Motif</div><div class="p-spec-value">Delft Cobalt Floral</div></div>
+          <div class="p-spec"><div class="p-spec-label">Edge</div><div class="p-spec-value">22-carat Gold</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="split fu d1">
+      <div class="split-grid">
+        <div class="split-grid-2">
+          <div class="tile"><img src="t15-2.png" alt="Azur Imperial — detail" /></div>
+          <div class="tile"><img src="t15-3.png" alt="Azur Imperial — tile" /></div>
+        </div>
+        <div class="split-grid-2">
+          <div class="tile"><img src="t15-4.png" alt="Azur Imperial — botanicals" /></div>
+          <div class="tile"><img src="t15-5.png" alt="Azur Imperial — light" /></div>
+        </div>
+      </div>
+      <div class="split-hero">
+        <img src="t15.png" alt="Azur Imperial — full view" />
+      </div>
+    </div>
+    <div class="img-strip c3 fu d2">
+      <div class="tile"><img src="t15-6.png" alt="Azur Imperial — ambient" /></div>
+      <div class="tile"><img src="t15-7.png" alt="Azur Imperial — grand" /></div>
+      <div class="tile"><img src="t15-2.png" alt="Azur Imperial — close" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <img src="logo_primary%20logo%20white.png" alt="Deconovia" class="footer-logo" />
+  <div class="ornament"><div class="ornament-gem"></div></div>
+  <div class="footer-tagline">Living Sculptures — Collection 2026</div>
+  <div class="footer-copy">© 2026 Deconovia. All rights reserved. Each piece is a unique commission.</div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const drawer = document.getElementById('nav-drawer');
+  function closeNav() { drawer.classList.remove('open'); toggle.classList.remove('open'); }
+  toggle.addEventListener('click', () => { drawer.classList.toggle('open'); toggle.classList.toggle('open'); });
+
+  window.addEventListener('scroll', () => {
+    document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
+  }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
+  document.querySelectorAll('.fu').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
