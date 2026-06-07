@@ -69,7 +69,7 @@
     nav a:hover { color: var(--gold); }
 
     .nav-toggle {
-      display: none; background: none; border: none;
+      display: block; background: none; border: none;
       cursor: pointer; padding: 6px; z-index: 201;
     }
     .nav-toggle span {
@@ -317,6 +317,61 @@
     }
     .tile:hover::after { border-color: rgba(201,168,76,.3); }
 
+    /* ══ CONTACT ══ */
+    .contact-section {
+      text-align: center;
+      padding: 7rem 2rem 6rem;
+      border-top: 1px solid rgba(201,168,76,.1);
+      background: var(--mid);
+    }
+    .contact-heading {
+      font-family: var(--display); font-weight: normal;
+      font-size: clamp(2.2rem, 4.5vw, 4rem);
+      letter-spacing: 0.06em; color: var(--cream);
+      margin-bottom: 1.2rem;
+    }
+    .contact-sub {
+      font-family: var(--sans); font-size: 0.82rem;
+      line-height: 2.2; font-weight: 300; color: var(--cream-dim);
+      max-width: 480px; margin: 0 auto 4rem; letter-spacing: 0.04em;
+    }
+    .contact-cards {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0; max-width: 640px; margin: 0 auto;
+    }
+    .contact-card {
+      flex: 1; padding: 2.5rem 2rem;
+      border: 1px solid rgba(201,168,76,.18);
+      background: rgba(201,168,76,.03);
+    }
+    .contact-divider {
+      width: 1px; height: 120px; flex-shrink: 0;
+      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    }
+    .contact-role {
+      font-family: var(--sans); font-size: 0.52rem;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--gold-dim); margin-bottom: 0.7rem;
+    }
+    .contact-name {
+      font-family: var(--display); font-weight: normal;
+      font-size: 2rem; letter-spacing: 0.06em;
+      color: var(--cream); margin-bottom: 1rem;
+    }
+    .contact-tel {
+      font-family: var(--sans); font-size: 0.9rem;
+      font-weight: 300; letter-spacing: 0.1em;
+      color: var(--gold); text-decoration: none;
+      transition: color 0.3s;
+    }
+    .contact-tel:hover { color: var(--gold-light); }
+    @media (max-width: 600px) {
+      .contact-cards { flex-direction: column; gap: 1.5rem; }
+      .contact-divider { width: 80px; height: 1px;
+        background: linear-gradient(to right, transparent, var(--gold), transparent); }
+      .contact-section { padding: 4rem 1.5rem; }
+    }
+
     /* ══ FOOTER ══ */
     footer {
       border-top: 1px solid rgba(201,168,76,.15);
@@ -349,7 +404,6 @@
       .product-inner { padding: 0 2.5rem; }
       header { padding: 1.1rem 2rem; }
       nav { display: none; }
-      .nav-toggle { display: block; }
       .product-header { grid-template-columns: 1fr; gap: 1.5rem; }
       .header-divider { display: none; }
       .img-hero-centered { max-width: 80%; }
@@ -460,7 +514,7 @@
   <div class="hero-rule"></div>
   <p class="hero-eyebrow">Living Sculptures — Collection 2026</p>
   <h1 class="fu d1">Nature<br /><em>Elevated</em></h1>
-  <p class="hero-sub fu d2">Fourteen singular objects. Rare materials.<br />Living botanicals. Integrated light.</p>
+  <p class="hero-sub fu d2">Thirteen singular objects. Rare materials.<br />Living botanicals. Integrated light.<br />Ceramics &nbsp;·&nbsp; Stone &nbsp;·&nbsp; Glass &nbsp;·&nbsp; Terracotta</p>
   <div class="hero-scroll">Explore</div>
 </section>
 
@@ -758,15 +812,11 @@
         </div>
       </div>
     </div>
-    <div class="split fu d1">
-      <div class="split-hero">
-        <img src="t12.png" alt="Alba Flame — full view" />
-      </div>
-      <div class="split-grid">
-        <div class="tile"><img src="t12-1.png" alt="Alba Flame — lattice" /></div>
-        <div class="tile"><img src="t12-3.png" alt="Alba Flame — detail" /></div>
-        <div class="tile"><img src="t12-4.png" alt="Alba Flame — ambient" /></div>
-      </div>
+    <div class="img-strip c2 fu d1">
+      <div class="tile"><img src="t12.png" alt="Alba Flame — full view" /></div>
+      <div class="tile"><img src="t12-1.png" alt="Alba Flame — lattice" /></div>
+      <div class="tile"><img src="t12-3.png" alt="Alba Flame — detail" /></div>
+      <div class="tile"><img src="t12-4.png" alt="Alba Flame — ambient" /></div>
     </div>
   </div>
 </section>
@@ -942,6 +992,27 @@
       <div class="split-hero">
         <img src="t9.png" alt="Noir Orb — full view" />
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section class="contact-section fu">
+  <div class="ornament" style="margin-bottom:3rem;"><div class="ornament-gem"></div></div>
+  <span class="eyebrow">Commission an Object</span>
+  <h2 class="contact-heading">Get in Touch</h2>
+  <p class="contact-sub">Each Deconovia piece is a bespoke commission. Reach out to our founders to begin your conversation.</p>
+  <div class="contact-cards">
+    <div class="contact-card fu d1">
+      <div class="contact-role">Founder</div>
+      <div class="contact-name">Pahuni</div>
+      <a class="contact-tel" href="tel:+919009362525">+91 90093 62525</a>
+    </div>
+    <div class="contact-divider"></div>
+    <div class="contact-card fu d2">
+      <div class="contact-role">Founder</div>
+      <div class="contact-name">Pavit</div>
+      <a class="contact-tel" href="tel:+919993384455">+91 99933 84455</a>
     </div>
   </div>
 </section>
